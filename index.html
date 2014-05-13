@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Slidify</title>
+<link href="css/slidify.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="js/jquery-slidify.js"></script>
+<script>
+$(document).ready(function(){
+$( "#myslider" ).slidify({
+    width:'1200',
+    height:'400',
+    activeslide:1,
+    activeClass:'iamcurrent',       
+    fadeingSpeed:2000,
+    theme:'black',
+    responsive:true
+});
+});
+</script>
+</head>
+<body>
+    <div id="myslider" class="fancy-new-slider"> 
+        <ul>
+            <li><img src="images/Chrysanthemum.jpg"/></li>            
+            <li><img src="images/Koala.jpg"/></li>            
+            <li><img src="images/Lighthouse.jpg"/></li>
+            <li><img src="images/Chrysanthemum.jpg"/></li>            
+            <li><img src="images/Koala.jpg"/></li>            
+            <li><img src="images/Lighthouse.jpg"/></li>
+        </ul>
+    </div>
+</body>
+</html>
