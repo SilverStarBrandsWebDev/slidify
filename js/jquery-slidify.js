@@ -12,9 +12,10 @@
         height: 300,
         activeslide:1,
         activeClass:'myactive',       
-        fadeingSpeed:800,
+        fadingSpeed:800,
         theme:'black', //"black"|"grey"|"white"|keep it blank for no theme
-        responsive:true
+        responsive:true,
+        transitionSpeed:2000
         }, options );
         // Greenify the collection based on the settings variable.
        if(settings.responsive === false)
@@ -37,23 +38,23 @@
          var ulwidth = (m_li.width())*imgcount;
           m_ul.width(ulwidth);
         }
-        var callinterval = (settings.fadeingSpeed * 2)+500;
+        var callinterval = settings.transitionSpeed;
      
         function changetheslide(){
          cid = $('.'+settings.activeClass).index(); 
-           m_li.eq(cid).removeClass(settings.activeClass).fadeOut(settings.fadeingSpeed);           
+           m_li.eq(cid).removeClass(settings.activeClass).fadeOut(settings.fadingSpeed);           
            setTimeout(function () {
                if(cid === (imgcount)-1){
                     mainContainer.find('div.slidify-bullets a').removeClass('bullet-active');
                    mainContainer.find('div.slidify-bullets a').eq(0).addClass('bullet-active');
-                   m_li.eq(0).addClass(settings.activeClass).fadeIn(settings.fadeingSpeed);                    
+                   m_li.eq(0).addClass(settings.activeClass).fadeIn(settings.fadingSpeed);                    
                 }
                 else{
                     mainContainer.find('div.slidify-bullets a').removeClass('bullet-active');
                     mainContainer.find('div.slidify-bullets a').eq(cid+1).addClass('bullet-active');
-                    m_li.eq(cid+1).addClass(settings.activeClass).fadeIn(settings.fadeingSpeed);                    
+                    m_li.eq(cid+1).addClass(settings.activeClass).fadeIn(settings.fadingSpeed);                    
                  }
-            }, settings.fadeingSpeed);    
+            }, settings.fadingSpeed);    
         }
         function makebullets(slideLength){
             var createbullets="";
@@ -65,10 +66,10 @@
         }
         $('.slidify-bullets a').click(function(){
             var cslide=$(this).attr('rel');            
-             m_li.removeClass(settings.activeClass).fadeOut(settings.fadeingSpeed);
+             m_li.removeClass(settings.activeClass).fadeOut(settings.fadingSpeed);
               mainContainer.find('div.slidify-bullets a').removeClass('bullet-active');
              mainContainer.find('div.slidify-bullets a').eq(cslide).addClass('bullet-active')
-             m_li.eq(cslide).addClass(settings.activeClass).fadeIn(settings.fadeingSpeed);
+             m_li.eq(cslide).addClass(settings.activeClass).fadeIn(settings.fadingSpeed);
              cid=cslide;
             
         });
